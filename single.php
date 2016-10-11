@@ -28,9 +28,7 @@
 				</div>
 			</div>
 			<div class="col-1-3">
-				<div class="wrap-col">
-                    <?php get_sidebar(); ?>
-				</div>
+                <?php get_sidebar(); ?>
 			</div>
 		</div>
 	</div>

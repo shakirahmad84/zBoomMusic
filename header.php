@@ -25,18 +25,6 @@
 		<script src="js/css3-mediaqueries.js"></script>
 	<![endif]-->
 	
-	<script>
-		$(function () {
-		  $("#slider").responsiveSlides({
-			auto: true,
-			pager: false,
-			nav: true,
-			speed: 500,
-			maxwidth: 962,
-			namespace: "centered-btns"
-		  });
-		});
-	</script>
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>

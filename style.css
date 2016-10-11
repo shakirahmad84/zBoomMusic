@@ -10,3 +10,10 @@ License URI:
 Tags: music, wordpress, responsite, blog
 Text Domain: zboom
 */
+
+.right-sidebar ul {
+    background-color: #1e1e1e;
+    margin-left: 0px;
+    padding-left: 20px;
+    list-style: circle;
+}

